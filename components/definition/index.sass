@@ -1,0 +1,85 @@
+//definition
+$name-prefix-cls: 'rect'
+
+//size
+$size-height-xl: 46px
+$size-height-lg: 38px
+$size-height-md: 30px
+$size-height-sm: 22px
+$size-height-xs: 12px
+
+$size-font-xl: 18px
+$size-font-lg: 16px
+$size-font-md: 14px
+$size-font-sm: 13px
+$size-font-xs: 12px
+
+$size-margin-xl: 20px
+$size-margin-lg: 16px
+$size-margin-md: 12px
+$size-margin-sm: 8px
+$size-margin-xs: 4px
+
+$size-padding-xl: 0 24px
+$size-padding-lg: 0 22px
+$size-padding-md: 0 16px
+$size-padding-sm: 0 12px
+$size-padding-xs: 0 8px
+
+//color
+$color-blue-1  : #e6f8ff
+$color-blue-2  : #a3e3ff
+$color-blue-3  : #78cffa
+$color-blue-4  : #4cb2ed
+$color-blue-5  : #2495e0
+$color-blue-6  : #0078d4
+$color-blue-7  : #005cad
+$color-blue-8  : #004487
+$color-blue-9  : #002d61
+$color-blue-10 : #00193b
+
+$color-primary: $color-blue-6
+
+
+$color-gray-1  :  #ffffff
+$color-gray-2  :  #fafafa
+$color-gray-3  :  #f5f5f5
+$color-gray-4  :  #f0f0f0
+$color-gray-5  :  #d9d9d9
+$color-gray-6  :  #bfbfbf
+$color-gray-7  :  #8c8c8c
+$color-gray-8  :  #595959
+$color-gray-9  :  #434343
+$color-gray-10 :  #262626
+$color-gray-11 :  #1f1f1f
+$color-gray-12 :  #141414
+$color-gray-13 :  #000000
+
+$color-border: $color-gray-6
+$color-border-hover: $color-gray-8
+
+$color-background-color: $color-gray-1
+
+$color-font-gray-1: rgba(#000, .85)
+$color-font-gray-2: rgba(#000, .65)
+
+//util
+@mixin label
+  user-select: none
+@mixin clickable
+  cursor: pointer
+@mixin disabled
+  user-select: none
+  cursor: not-allowed
+@mixin focus
+  $color-outline-focus: $color-gray-7
+  &
+    outline:
+      width: 2px
+      style: dashed
+      color: rgba($color-outline-focus, 0)
+      offset: 8px
+    &:focus-visible
+      outline:
+        offset: 1px
+        color: rgba($color-outline-focus, 1)
