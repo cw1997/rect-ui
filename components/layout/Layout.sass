@@ -1,0 +1,33 @@
+@import '../definition/index'
+
+.#{$name-prefix-cls}-layout
+  display: flex
+  &-direction
+    &-row
+      flex-direction: row
+      &-reverse
+        flex-direction: row-reverse
+    &-column
+      flex-direction: column
+      &-reverse
+        flex-direction: column-reverse
+  &-align
+    &-main
+      &-start
+        justify-content: start
+      &-center
+        justify-content: center
+      &-end
+        justify-content: end
+      &-space-between
+        justify-content: space-between
+    &-secondary
+      &-start
+        align-items: start
+      &-center
+        align-items: center
+      &-end
+        align-items: end
+      &-baseline
+        align-items: baseline
+
