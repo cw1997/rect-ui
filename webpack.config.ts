@@ -109,8 +109,9 @@ const webpackConfig = {
         overlay: {
             errors: true
         },
+        open: false,
         inline: true,
-        hot: true,
+        hot: false,
         // compress: true,
     },
 };
