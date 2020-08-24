@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import './Demo.sass';
-import {SizeEnum, ColorEnum, Layout, Button} from "../src";
+import {SizeEnum, ColorEnum, Layout, Button, Input} from "../src";
 import {LoginOutlined} from '@ant-design/icons/lib';
 
 import '../src/index.sass'
@@ -69,6 +69,20 @@ export default function Demo(props : IPropsIndex) {
                     <Button loading={true}>按钮Button</Button>
                     <Button loading={true} color={ColorEnum.primary}>按钮Button</Button>
                     <Button loading={true} color={ColorEnum.line}>按钮Button</Button>
+                </Layout>
+            </ComponentItem>
+            <ComponentItem title="输入框">
+                <Layout>
+                    <Input
+                        placeholder="placeholder占位符"
+                    />
+                    <Input
+                        insideBefore={"insideBefore"}
+                        outsideBefore={"outsideBefore"}
+                        insideAfter={"insideAfter"}
+                        outsideAfter={"outsideAfter"}
+                        placeholder="placeholder占位符"
+                    />
                 </Layout>
             </ComponentItem>
         </div>
