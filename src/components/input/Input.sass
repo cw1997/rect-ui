@@ -1,0 +1,78 @@
+@import '../definition/index'
+
+.#{$name-prefix-cls}-input
+  transition: all .25s
+  &-control
+    @include removeDefaultFocusStyle
+    border: 0
+    &::placeholder
+      @include label
+      color: $color-gray-6
+    &-size
+      &-xl
+        //padding: $size-padding-xl
+        height: $size-height-xl
+        line-height: $size-height-xl
+        font:
+          size: $size-font-xl
+      &-lg
+        //padding: $size-padding-lg
+        height: $size-height-lg
+        line-height: $size-height-lg
+        font:
+          size: $size-font-lg
+      &-md
+        padding: 0 8px
+        height: $size-height-md
+        line-height: $size-height-md
+        font:
+          size: $size-font-md
+      &-sm
+        //padding: $size-padding-sm
+        height: $size-height-sm
+        line-height: $size-height-sm
+        font:
+          size: $size-font-sm
+      &-xs
+        //padding: $size-padding-xs
+        height: $size-height-xs
+        line-height: $size-height-xs
+        font:
+          size: $size-font-xs
+  &-outside
+    display: flex
+    align-items: center
+    &-left
+      padding:
+        right: 8px
+    &-right
+      padding:
+        left: 8px
+  &-inside
+    transition: all .25s
+    display: flex
+    //justify-content: center
+    align-items: center
+    border: 1px solid $color-border
+    &-left
+      padding:
+        left: 8px
+    &-right
+      padding:
+        right: 8px
+    //  pseudo classes
+    &:hover
+      border:
+        color: $color-primary
+    outline:
+      width: 1px
+      style: solid
+      color: rgba($color-primary, 0)
+      //offset: 8px
+    &:focus-within
+      border:
+        color: $color-primary
+      outline:
+        color: $color-primary
+        //offset: 0
+

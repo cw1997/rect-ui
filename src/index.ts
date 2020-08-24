@@ -1,6 +1,7 @@
+import {SizeEnum, ColorEnum} from './components/definition';
 import Layout from "./components/layout/Layout";
 import Button from "./components/button/Button";
-import {SizeEnum, ColorEnum} from './components/definition';
+import Input from './components/input/Input';
 
 export {
     SizeEnum,
@@ -8,5 +9,6 @@ export {
 
     Layout,
     Button,
+    Input,
 
 };
