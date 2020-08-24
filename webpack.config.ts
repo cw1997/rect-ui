@@ -1,17 +1,16 @@
 const path = require('path');
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const tsImportPluginFactory = require("ts-import-plugin");
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 const webpackConfig = {
     entry: {
-        index: './demo/Index.tsx'
+        index: './index.tsx'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name]-[hash].min.js',
+        filename: '[name].[hash].min.js',
         library: 'rect-ui',
         libraryTarget: 'umd'
     },
@@ -20,22 +19,15 @@ const webpackConfig = {
     },
     module: {
         rules: [ {
-            test: /\.tsx?$/,
-            loader: "ts-loader",
-            exclude: /node_modules/,
-            options: {
-                transpileOnly: true,
-                // getCustomTransformers: () => ({
-                //     before: [tsImportPluginFactory({
-                //         libraryName: "rect-ui",
-                //         libraryDirectory: "demo",
-                //         style: true,
-                //     })],
-                // }),
-                compilerOptions: {
-                    module: "es2015",
-                },
-            },
+            test: /\.js$/,
+            use: ['babel-loader'],
+            exclude: '/node_modules/',
+        }, {
+            test: /\.(j|t)sx?$/,
+            use: [{
+                    loader: 'babel-loader'
+            }, ],
+            exclude: '/node_modules/',
         }, {
             test: /\.css$/,
             use: [{
@@ -43,7 +35,7 @@ const webpackConfig = {
             }, {
                     loader: "css-loader",
             }, ],
-            exclude: /node_modules/,
+            exclude: '/node_modules/',
         }, {
             test: /\.less$/,
             use: [{
@@ -51,47 +43,69 @@ const webpackConfig = {
             }, {
                     loader: "css-loader",
             }, {
+                    loader: "postcss-loader",
+            }, {
                 loader: "less-loader",
             }, ],
         }, {
-            test: /\.scss$/,
+            test: /\.s[ca]ss$/,
             use: [{
                 loader: MiniCssExtractPlugin.loader
             }, {
                 loader: 'css-loader',
             }, {
+                loader: 'postcss-loader',
+            }, {
                 loader: 'sass-loader'
             }, ],
-            exclude: /node_modules/
+            exclude: '/node_modules/',
         }, {
-            test: /\.sass$/,
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             use: [{
-                loader: MiniCssExtractPlugin.loader
-            }, {
-                loader: 'css-loader',
-            }, {
-                loader: 'sass-loader'
+                loader: 'url-loader',
+                options: {
+                    //1024 == 1kb, pack to base64 inline url if size <- 10240 bytes
+                    limit: 10240,
+                    name: path.join('img/[name].[hash:7].[ext]')
+                },
             }, ],
-            exclude: /node_modules/
-        }, ]
+        }, {
+            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 10240,
+                    name: path.join('font/[name].[hash:7].[ext]')
+                },
+            }],
+        } ,],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "rect-ui test page",
-            template: path.resolve(__dirname, "demo/index.html"),
+            filename: 'index.html',
+            template: 'demo/index.html',
+            inject: true
         }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // all options are optional
-            filename: "[id]-[hash].css",
-            // chunkFilename: "[id].[hash].css",
+            filename: "[id].[hash].min.css",
+            chunkFilename: "[id].[hash].min.css",
             ignoreOrder: false, // Enable to remove warnings about conflicting order
         }),
-        new ErrorOverlayPlugin()
+        new ErrorOverlayPlugin(),
     ],
+    devtool: 'cheap-module-source-map', // 'eval' is not supported by error-overlay-webpack-plugin
     devServer: {
         contentBase: "./dist",
         host: "0.0.0.0",
+        port: 3000,
+        historyApiFallback: true,
+        overlay: {
+            errors: true
+        },
+        inline: true,
+        hot: true,
     },
 };
 

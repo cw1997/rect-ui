@@ -1,21 +1,18 @@
 import * as React from 'react';
-import * as ReactDom from 'react-dom';
 
-import './Index.sass';
-import Button from "../components/button/Button";
-import Layout from "../components/layout/Layout";
-import {ColorEnum, SizeEnum} from "../components/definition";
-import {LoginOutlined} from "@ant-design/icons/lib";
+import './Demo.sass';
+import {SizeEnum, ColorEnum, Layout, Button} from "../src";
+import {LoginOutlined} from '@ant-design/icons/lib';
 
-import '../components/definition/global.sass'
+import '../src/index.sass'
 
 interface IPropsIndex {
 
 }
 
-function Index(props : IPropsIndex) {
+export default function Demo(props : IPropsIndex) {
     return (
-        <div className="Index">
+        <div className="Demo">
             <ComponentItem title="按钮">
                 <Layout>
                     <Button size={SizeEnum.xs}>按钮</Button>
@@ -96,5 +93,3 @@ function ComponentItem(props: IPropsComponentItem) {
         </div>
     )
 }
-
-ReactDom.render(<Index />, document.getElementById('root'));

@@ -1,0 +1,21 @@
+"eslint.autoFixOnSave": true,
+"eslint.validate": [
+"javascript",
+"javascriptreact",
+{
+"language": "html",
+"autoFix": true
+},
+{
+"language": "vue",
+"autoFix": true
+},
+{
+"language": "typescript",
+"autoFix": true
+},
+{
+"language": "typescriptreact",
+"autoFix": true
+},
+]
