@@ -57,7 +57,7 @@ function Layout(props : IPropsLayout) {
 
     const outputChildren = Array.isArray(children) ? children.map((v, k) => {
         return (
-            <div style={outputItemStyle}>
+            <div key={k} style={outputItemStyle}>
                 {v}
             </div>
         )
@@ -75,15 +75,15 @@ function getStyleForLayout(direction: LayoutDirectionEnum, reverse: boolean, siz
     const outputSize = size;
     if (direction === LayoutDirectionEnum.row) {
         if (reverse) {
-            outputStyle = {'margin-top': outputSize};
+            outputStyle = {marginTop: outputSize};
         } else {
-            outputStyle = {'margin-bottom': outputSize};
+            outputStyle = {marginBottom: outputSize};
         }
     } else {
         if (reverse) {
-            outputStyle = {'margin-right': outputSize};
+            outputStyle = {marginRight: outputSize};
         } else {
-            outputStyle = {'margin-left': outputSize};
+            outputStyle = {marginLeft: outputSize};
         }
     }
     return outputStyle;
@@ -94,15 +94,15 @@ function getStyleForItem(direction: LayoutDirectionEnum, reverse: boolean, size:
     const outputSize = size;
     if (direction === LayoutDirectionEnum.row) {
         if (reverse) {
-            outputStyle = {'margin-left': outputSize};
+            outputStyle = {marginLeft: outputSize};
         } else {
-            outputStyle = {'margin-right': outputSize};
+            outputStyle = {marginRight: outputSize};
         }
     } else {
         if (reverse) {
-            outputStyle = {'margin-top': outputSize};
+            outputStyle = {marginTop: outputSize};
         } else {
-            outputStyle = {'margin-bottom': outputSize};
+            outputStyle = {marginBottom: outputSize};
         }
     }
     return outputStyle;
