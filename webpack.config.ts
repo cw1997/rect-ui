@@ -26,6 +26,7 @@ const webpackConfig = {
             test: /\.(j|t)sx?$/,
             use: [{
                     loader: 'babel-loader'
+                    // loader: 'ts-loader'
             }, ],
             exclude: '/node_modules/',
         }, {
@@ -47,6 +48,7 @@ const webpackConfig = {
             }, {
                 loader: "less-loader",
             }, ],
+            exclude: '/node_modules/',
         }, {
             test: /\.s[ca]ss$/,
             use: [{
@@ -69,6 +71,7 @@ const webpackConfig = {
                     name: path.join('img/[name].[hash:7].[ext]')
                 },
             }, ],
+            exclude: '/node_modules/',
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             use: [{
@@ -77,7 +80,8 @@ const webpackConfig = {
                     limit: 10240,
                     name: path.join('font/[name].[hash:7].[ext]')
                 },
-            }],
+            }, ],
+            exclude: '/node_modules/',
         } ,],
     },
     plugins: [
@@ -96,6 +100,7 @@ const webpackConfig = {
         new ErrorOverlayPlugin(),
     ],
     devtool: 'cheap-module-source-map', // 'eval' is not supported by error-overlay-webpack-plugin
+    // devtool: 'eval', // 'eval' is not supported by error-overlay-webpack-plugin
     devServer: {
         contentBase: "./dist",
         host: "0.0.0.0",
@@ -106,6 +111,7 @@ const webpackConfig = {
         },
         inline: true,
         hot: true,
+        // compress: true,
     },
 };
 
