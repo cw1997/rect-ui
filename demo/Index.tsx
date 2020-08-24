@@ -7,6 +7,8 @@ import Layout from "../components/layout/Layout";
 import {ColorEnum, SizeEnum} from "../components/definition";
 import {LoginOutlined} from "@ant-design/icons/lib";
 
+import '../components/definition/global.sass'
+
 interface IPropsIndex {
 
 }
