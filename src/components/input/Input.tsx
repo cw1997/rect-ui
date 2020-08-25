@@ -17,9 +17,9 @@ function Input(props : IPropsInput) {
     const prefixClsComponent = 'input';
     const outputPrefixCls = `${prefixCls}-${prefixClsComponent}`;
 
-    const {children, color, className, size, disabled, insideBefore, insideAfter, outsideBefore, outsideAfter, ...otherProps} = props;
+    const {children, color, className, size, disabled, controlSize, insideBefore, insideAfter, outsideBefore, outsideAfter, ...otherProps} = props;
 
-    const outputSize = size ? size : SizeEnum.md;
+    const outputSize = controlSize ? controlSize : SizeEnum.md;
     const outputColor = color ? color : ColorEnum.default;
     const outputDisabled = disabled ? disabled : false;
 
