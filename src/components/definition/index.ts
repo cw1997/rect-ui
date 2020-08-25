@@ -2,11 +2,11 @@ export const prefixCls = 'rect';
 
 // const prefixClsSize = 'size';
 export enum SizeEnum {
-    xl   =   'size-xl',
+    // xl   =   'size-xl',
     lg   =   'size-lg',
     md   =   'size-md',
     sm   =   'size-sm',
-    xs   =   'size-xs',
+    // xs   =   'size-xs',
 }
 
 // const prefixClsColor = 'color';
