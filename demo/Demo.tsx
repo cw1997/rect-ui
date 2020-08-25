@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import './Demo.sass';
-import {SizeEnum, ColorEnum, Layout, Button, Input} from "../src";
+import {Button, ColorEnum, Input, Layout, SizeEnum} from "../src";
 import {LoginOutlined} from '@ant-design/icons/lib';
 
 import '../src/index.sass'
@@ -14,13 +14,6 @@ export default function Demo(props : IPropsIndex) {
     return (
         <div className="Demo">
             <ComponentItem title="按钮">
-                <Layout>
-                    <Button size={SizeEnum.xs}>按钮</Button>
-                    <Button size={SizeEnum.xs}>Button</Button>
-                    <Button size={SizeEnum.xs}>按钮Button</Button>
-                    <Button size={SizeEnum.xs} color={ColorEnum.primary}>按钮Button</Button>
-                    <Button size={SizeEnum.xs} color={ColorEnum.line}>按钮Button</Button>
-                </Layout>
                 <Layout>
                     <Button size={SizeEnum.sm}>按钮</Button>
                     <Button size={SizeEnum.sm}>Button</Button>
@@ -41,13 +34,6 @@ export default function Demo(props : IPropsIndex) {
                     <Button icon={<LoginOutlined />} size={SizeEnum.lg}>按钮Button</Button>
                     <Button icon={<LoginOutlined />} size={SizeEnum.lg} color={ColorEnum.primary}>按钮Button</Button>
                     <Button icon={<LoginOutlined />} size={SizeEnum.lg} color={ColorEnum.line}>按钮Button</Button>
-                </Layout>
-                <Layout>
-                    <Button icon={<LoginOutlined />} size={SizeEnum.xl}>按钮</Button>
-                    <Button icon={<LoginOutlined />} size={SizeEnum.xl}>Button</Button>
-                    <Button icon={<LoginOutlined />} size={SizeEnum.xl}>按钮Button</Button>
-                    <Button icon={<LoginOutlined />} size={SizeEnum.xl} color={ColorEnum.primary}>按钮Button</Button>
-                    <Button icon={<LoginOutlined />} size={SizeEnum.xl} color={ColorEnum.line}>按钮Button</Button>
                 </Layout>
                 <Layout>
                     <Button icon={<LoginOutlined />} disabled>按钮</Button>
@@ -75,6 +61,7 @@ export default function Demo(props : IPropsIndex) {
                 <Layout>
                     <Input
                         placeholder="placeholder占位符"
+                        controlSize={SizeEnum.sm}
                     />
                     <Input
                         insideBefore={"insideBefore"}
@@ -82,6 +69,33 @@ export default function Demo(props : IPropsIndex) {
                         insideAfter={"insideAfter"}
                         outsideAfter={"outsideAfter"}
                         placeholder="placeholder占位符"
+                        controlSize={SizeEnum.sm}
+                    />
+                </Layout>
+                <Layout>
+                    <Input
+                        placeholder="placeholder占位符"
+                    />
+                    <Input
+                        insideBefore={"insideBefore"}
+                        outsideBefore={"outsideBefore"}
+                        insideAfter={"insideAfter"}
+                        outsideAfter={"outsideAfter"}
+                        placeholder="placeholder占位符"
+                    />
+                </Layout>
+                <Layout>
+                    <Input
+                        placeholder="placeholder占位符"
+                        controlSize={SizeEnum.lg}
+                    />
+                    <Input
+                        insideBefore={"insideBefore"}
+                        outsideBefore={"outsideBefore"}
+                        insideAfter={"insideAfter"}
+                        outsideAfter={"outsideAfter"}
+                        placeholder="placeholder占位符"
+                        controlSize={SizeEnum.lg}
                     />
                 </Layout>
             </ComponentItem>
